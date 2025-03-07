@@ -13,4 +13,4 @@ class Jogador(BaseModel):
     equipamentos: Dict = {}
 
     class Config:
-        orm_mode = True
+        from_attributes = True

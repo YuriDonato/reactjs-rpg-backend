@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from aplicacao.dto.jogador_dto import JogadorDTO
 from dominio.entidades.jogador import Jogador
-from infra.repositorios_impl.jogador_repo_impl import JogadorRepositorioFirebase
+from infra.repos.jogador import JogadorRepositorioFirebase
 
 router = APIRouter()
 repositorio_jogador = JogadorRepositorioFirebase()
