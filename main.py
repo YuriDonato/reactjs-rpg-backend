@@ -1,9 +1,15 @@
-# backend/app/main.py
 from fastapi import FastAPI
-from app.interfaces.roteadores import jogador, inventario  # Adicione outros roteadores conforme necessário
+from fastapi.middleware.cors import CORSMiddleware
+from interfaces.roteadores import jogador  # Importe outros roteadores conforme forem criados
 
 app = FastAPI(title="RPG Backend")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Ajuste para os domínios permitidos
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(jogador.router, prefix="/jogador", tags=["Jogador"])
-app.include_router(inventario.router, prefix="/inventario", tags=["Inventário"])
-# Adicione aqui outros roteadores, por exemplo, quest, equipamento, loja, combate, áreas, auth, etc.

@@ -1,14 +1,13 @@
-# backend/app/interfaces/roteadores/jogador.py
 from fastapi import APIRouter, HTTPException
-from app.aplicacao.dto.jogador_dto import JogadorDTO
-from app.dominio.entidades.jogador import Jogador
-from app.infraestrutura.repositorios_impl.jogador_repo_impl import JogadorRepositorioImpl
+from aplicacao.dto.jogador_dto import JogadorDTO
+from dominio.entidades.jogador import Jogador
+from infra.repositorios_impl.jogador_repo_impl import JogadorRepositorioFirebase
 
 router = APIRouter()
-repositorio_jogador = JogadorRepositorioImpl()
+repositorio_jogador = JogadorRepositorioFirebase()
 
 @router.get("/", response_model=JogadorDTO)
-def obter_jogador(id: int = 1):
+def obter_jogador(id: str = "1"):
     try:
         jogador = repositorio_jogador.obter_jogador(id)
         return jogador

@@ -1,9 +1,8 @@
-# backend/app/aplicacao/dto/jogador_dto.py
 from pydantic import BaseModel
 from typing import List, Dict
 
 class JogadorDTO(BaseModel):
-    id: int
+    id: str
     nome: str
     hp: int
     xp: int

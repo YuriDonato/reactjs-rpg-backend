@@ -1,9 +1,8 @@
-# backend/app/dominio/entidades/jogador.py
 from pydantic import BaseModel
 from typing import List, Dict
 
 class Jogador(BaseModel):
-    id: int
+    id: str
     nome: str
     hp: int
     xp: int
