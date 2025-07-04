@@ -1,9 +1,8 @@
 from fastapi import APIRouter, HTTPException
-from dominio.entidades.jogador import Jogador
-from infra.repos.jogador import JogadorRepositorioFirebase
+from infra.jogador import JogadorFirebase, Jogador
 
 router = APIRouter()
-repositorio_jogador = JogadorRepositorioFirebase()
+repositorio_jogador = JogadorFirebase()
 
 @router.get("/", response_model=Jogador)
 def obter_jogador(id: str = "1"):
